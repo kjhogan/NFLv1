@@ -6,6 +6,7 @@ setup_NFL <- function(install_flag = "n", load_flag = "n" ) {
      install.packages("dplyr")
       install.packages("na.tools")
      install.packages("ggimage")
+     install.packages("webshot")
   }
 
   if(load_flag == "y"){
@@ -24,8 +25,8 @@ setup_NFL <- function(install_flag = "n", load_flag = "n" ) {
      library(ggbeeswarm) # beeswarm plots
      library(extrafont) # for extra fonts
     library(glue)
-    
-
+    library(webshot)
+    library(nflscrapR)
 
     pbp <- map_dfr(2009:2018, function(x){
       p <- read_csv(url(glue("https://github.com/ryurko/nflscrapR-data/raw/master/play_by_play_data/regular_season/reg_pbp_{x}.csv")))
